@@ -14,14 +14,15 @@ const nextConfig = {
       },
       {
         protocol: "http",
-        hostname: "208.113.133.157",
+        hostname: "103.154.63.33",
         port: "1337",
         pathname: "/uploads/**",
       },
       {
-        protocol: "https", // Nếu bạn dùng https
-        hostname: "admin.phongkhamkhoadien.vn", // Giả sử bạn có dùng subdomain
-        pathname: "/uploads/**", // Đảm bảo đúng đường dẫn cho ảnh
+        protocol: "https",
+        hostname: "admin.phongkhamkhoadien.vn",
+        port: "443",
+        pathname: "/uploads/**",
       },
     ],
   },
