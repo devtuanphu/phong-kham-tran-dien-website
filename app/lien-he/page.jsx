@@ -73,7 +73,6 @@ export async function generateMetadata() {
 }
 const page = async () => {
   const dataLienHe = await fetchData(`${ENDPOINT.GET_LIEN_HE}?${searchParams}`);
-  console.log(dataLienHe);
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-8xl">
