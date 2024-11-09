@@ -20,7 +20,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "admin.phongkhamkhoadien.vn",
+        hostname: "admin.phongkhamykhoatrandien.vn",
         pathname: "/uploads/**",
       },
     ],
