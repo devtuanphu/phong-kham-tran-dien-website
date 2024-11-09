@@ -44,7 +44,11 @@ const Footer = () => {
           {/* Logo and Info */}
           <div className="lg:w-1/3 mb-6 lg:mb-0">
             <Image
-              src={logo ? process.env.NEXT_PUBLIC_URL_BE + logo : ""} // Đổi đường dẫn này thành đường dẫn ảnh của bạn
+              src={
+                logo
+                  ? process.env.NEXT_PUBLIC_URL_BE + logo
+                  : "/path/defalut.jpg"
+              } // Đổi đường dẫn này thành đường dẫn ảnh của bạn
               alt="Trần Điền Logo"
               width={150} // Đặt chiều rộng phù hợp
               height={50} // Đặt chiều cao phù hợp

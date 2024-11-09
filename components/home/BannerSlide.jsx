@@ -16,7 +16,10 @@ const BannerSlide = ({ banner }) => {
           <SwiperSlide key={slide.id}>
             <div className="relative w-full h-[200px] md:h-[400px] lg:h-[500px]">
               <Image
-                src={process.env.NEXT_PUBLIC_URL_BE + imageUrl}
+                src={
+                  process.env.NEXT_PUBLIC_URL_BE + imageUrl ||
+                  "/path/defalut.jpg"
+                }
                 alt={slide.alt}
                 layout="fill"
                 objectFit="cover"

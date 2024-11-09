@@ -58,7 +58,11 @@ const SlideTinTuc = ({ baiVietLienQuan }) => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center p-6 bg-white rounded-lg shadow-lg">
                     <div className="w-full md:order-2">
                       <Image
-                        src={process.env.NEXT_PUBLIC_URL_BE + imageUrl}
+                        src={
+                          imageUrl
+                            ? `${process.env.NEXT_PUBLIC_URL_BE}${imageUrl}`
+                            : "/path/defalut.jpg"
+                        }
                         alt={slide?.attributes?.title}
                         width={350}
                         height={183}

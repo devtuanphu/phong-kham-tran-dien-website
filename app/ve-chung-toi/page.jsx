@@ -134,7 +134,7 @@ const page = async () => {
                   >
                     <div className="w-16 h-16 flex-shrink-0">
                       <Image
-                        src={post.img}
+                        src={post.img || "/path/defalut.jpg"}
                         alt={post.title}
                         width={64}
                         height={64}

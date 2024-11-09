@@ -89,9 +89,9 @@ const page = async ({ params }) => {
   }
 
   const baiVietLienQuanData = await fetchData(
-    `${ENDPOINT.GET_TIN_TUC}?${searchParams}&pagination[pageSize]=10	`
+    `${ENDPOINT.GET_TIN_TUC}?${searchParams}&pagination[pageSize]=10`
   );
-  const baiVietLienQuan = baiVietLienQuanData.data;
+  const baiVietLienQuan = baiVietLienQuanData.data || {};
   const detailPost = await fetchData(
     `${ENDPOINT.GET_TIN_TUC}?filters[slug][$eq]=${slug}&${searchParams}`
   );
@@ -122,7 +122,11 @@ const page = async ({ params }) => {
                       <div className="flex items-start py-4 space-x-4">
                         <div className="w-16 h-16 flex-shrink-0">
                           <Image
-                            src={process.env.NEXT_PUBLIC_URL_BE + imageUrl}
+                            src={
+                              imageUrl
+                                ? `${process.env.NEXT_PUBLIC_URL_BE}${imageUrl}`
+                                : "/path/default.jpg"
+                            }
                             alt={post?.attributes?.title}
                             width={64}
                             height={64}

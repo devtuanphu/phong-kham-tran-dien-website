@@ -50,7 +50,10 @@ const SectionChuyenSau = ({ contentServices }) => {
               >
                 <div className="w-1/2">
                   <Image
-                    src={process.env.NEXT_PUBLIC_URL_BE + imageUrl}
+                    src={
+                      process.env.NEXT_PUBLIC_URL_BE + imageUrl ||
+                      "/path/defalut.jpg"
+                    }
                     alt={service.title}
                     width={300}
                     height={300}

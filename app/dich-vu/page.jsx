@@ -127,7 +127,9 @@ const page = async () => {
           {/* Static Image */}
           <div className="w-full">
             <Image
-              src={process.env.NEXT_PUBLIC_URL_BE + image} // Thay thế bằng đường dẫn ảnh tĩnh của bạn
+              src={
+                process.env.NEXT_PUBLIC_URL_BE + image || "/path/defalut.jpg"
+              }
               alt="Thẩm mỹ mắt"
               width={600}
               height={400}
@@ -145,7 +147,10 @@ const page = async () => {
                   className="bg-blue-100 rounded-lg p-4 text-center shadow-md"
                 >
                   <Image
-                    src={process.env.NEXT_PUBLIC_URL_BE + imageUrl}
+                    src={
+                      process.env.NEXT_PUBLIC_URL_BE + imageUrl ||
+                      "/path/defalut.jpg"
+                    }
                     alt={service.title}
                     width={200}
                     height={200}
@@ -166,7 +171,7 @@ const page = async () => {
       <BaoGia />
       <div>
         <Image
-          src={process.env.NEXT_PUBLIC_URL_BE + banner}
+          src={process.env.NEXT_PUBLIC_URL_BE + banner || "/path/defalut.jpg"}
           alt="banner dịch vụ"
           layout="responsive" // Điều chỉnh kích thước ảnh tự động theo màn hình
           width={1600} // Đặt kích thước thực tế của ảnh
@@ -197,7 +202,10 @@ const page = async () => {
                 {/* Image */}
                 <div className="w-full md:w-1/2">
                   <Image
-                    src={process.env.NEXT_PUBLIC_URL_BE + imageUrl}
+                    src={
+                      process.env.NEXT_PUBLIC_URL_BE + imageUrl ||
+                      "/path/defalut.jpg"
+                    }
                     alt={section.title}
                     width={600}
                     height={400}

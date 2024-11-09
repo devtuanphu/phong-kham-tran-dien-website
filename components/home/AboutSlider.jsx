@@ -78,7 +78,10 @@ const VideoSlider = ({ slide }) => {
                 } w-full h-[200px] md:h-[250px]`}
               >
                 <Image
-                  src={process.env.NEXT_PUBLIC_URL_BE + imageUrl}
+                  src={
+                    process.env.NEXT_PUBLIC_URL_BE + imageUrl ||
+                    "/path/defalut.jpg"
+                  }
                   alt={item.title}
                   layout="fill"
                   objectFit="cover"

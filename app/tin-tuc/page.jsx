@@ -176,7 +176,11 @@ const page = async () => {
                     <div className="flex flex-col md:flex-row md:space-x-4 border-b pb-4 mb-4">
                       <div className="md:w-1/3 flex-shrink-0">
                         <Image
-                          src={process.env.NEXT_PUBLIC_URL_BE + imageUrl}
+                          src={
+                            imageUrl
+                              ? `${process.env.NEXT_PUBLIC_URL_BE}${imageUrl}`
+                              : "/path/defalut.jpg"
+                          }
                           alt={post?.attributes?.title}
                           width={300}
                           height={200}
@@ -217,7 +221,11 @@ const page = async () => {
                       <div className="flex items-start py-4 space-x-4">
                         <div className="w-16 h-16 flex-shrink-0">
                           <Image
-                            src={process.env.NEXT_PUBLIC_URL_BE + imageUrl}
+                            src={
+                              imageUrl
+                                ? `${process.env.NEXT_PUBLIC_URL_BE}${imageUrl}`
+                                : "/path/defalut.jpg"
+                            }
                             alt={post?.attributes?.title}
                             width={64}
                             height={64}

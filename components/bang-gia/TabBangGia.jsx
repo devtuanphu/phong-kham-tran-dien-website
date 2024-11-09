@@ -122,11 +122,15 @@ const TabBangGia = ({ priceData }) => {
           <p className="text-gray-600 mb-8">{selectedCategory.description}</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {selectedCategory.services.map((service) => {
-              const imageUrl = service.image.data.attributes.url;
+              const imageUrl = service?.image?.data?.attributes?.url;
               return (
                 <div key={service.id} className="bg-white rounded-lg shadow-md">
                   <Image
-                    src={process.env.NEXT_PUBLIC_URL_BE + imageUrl}
+                    src={
+                      imageUrl
+                        ? process.env.NEXT_PUBLIC_URL_BE + imageUrl
+                        : "/path/defalut.jpg"
+                    }
                     alt={service.title}
                     width={200}
                     height={200}

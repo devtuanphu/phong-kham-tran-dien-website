@@ -129,7 +129,10 @@ const ChuyenGia = ({ doctor }) => {
                   }}
                 >
                   <Image
-                    src={process.env.NEXT_PUBLIC_URL_BE + imageUrl}
+                    src={
+                      process.env.NEXT_PUBLIC_URL_BE + imageUrl ||
+                      "/path/defalut.jpg"
+                    }
                     alt={doctor.name}
                     width={250}
                     height={350}
@@ -176,7 +179,10 @@ const ChuyenGia = ({ doctor }) => {
                   <div className="grid grid-cols-12 gap-4 items-center">
                     <div className="hidden md:block col-span-4">
                       <Image
-                        src={process.env.NEXT_PUBLIC_URL_BE + imageUrl}
+                        src={
+                          process.env.NEXT_PUBLIC_URL_BE + imageUrl ||
+                          "/path/defalut.jpg"
+                        }
                         alt={doctor.name}
                         width={250}
                         height={350}
