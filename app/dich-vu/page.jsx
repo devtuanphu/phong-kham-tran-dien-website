@@ -15,17 +15,28 @@ const searchData = {
   ].toString(),
 };
 const searchParams = new URLSearchParams(searchData).toString();
-async function fetchData(endpoint) {
-  try {
-    const data = await apiService.get(endpoint);
-    return data;
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    return null;
+async function fetchWithToken(endpoint) {
+  const token = process.env.NEXT_PUBLIC_TOKEN_DEV;
+
+  const response = await fetch(endpoint, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    cache: "no-store", // Đảm bảo không cache dữ liệu
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
   }
+
+  return response.json();
 }
 export async function generateMetadata() {
-  const dataHome = await fetchData(`${ENDPOINT.GET_DICH_VU}?${searchParams}`);
+  const dataHome = await fetchWithToken(
+    `${ENDPOINT.GET_DICH_VU}?${searchParams}`
+  );
 
   const seo =
     (dataHome &&
@@ -102,7 +113,9 @@ const page = async () => {
     // Thêm các phần tử khác nếu cần
   ];
 
-  const dataHome = await fetchData(`${ENDPOINT.GET_DICH_VU}?${searchParams}`);
+  const dataHome = await fetchWithToken(
+    `${ENDPOINT.GET_DICH_VU}?${searchParams}`
+  );
   const image =
     dataHome?.data?.attributes?.image?.image?.data?.attributes?.url || "";
   const services_2 = dataHome?.data?.attributes?.imageServices;

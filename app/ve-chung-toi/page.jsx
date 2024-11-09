@@ -17,9 +17,27 @@ async function fetchData(endpoint) {
     return null;
   }
 }
+async function fetchWithToken(endpoint) {
+  const token = process.env.NEXT_PUBLIC_TOKEN_DEV;
+
+  const response = await fetch(endpoint, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    cache: "no-store", // Đảm bảo không cache dữ liệu
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
+
+  return response.json();
+}
 
 export async function generateMetadata() {
-  const dataHome = await fetchData(
+  const dataHome = await fetchWithToken(
     `${ENDPOINT.GET_VE_CHUNG_TOI}?${searchParams}`
   );
 
@@ -80,7 +98,7 @@ export async function generateMetadata() {
   };
 }
 const page = async () => {
-  const dataHome = await fetchData(
+  const dataHome = await fetchWithToken(
     `${ENDPOINT.GET_VE_CHUNG_TOI}?${searchParams}`
   );
   const content = dataHome?.data?.attributes?.content || "";

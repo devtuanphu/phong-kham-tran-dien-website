@@ -19,7 +19,7 @@ const Header = () => {
   const menuItems = [
     { title: "Dịch Vụ", link: "/dich-vu" },
     { title: "Về Chúng Tôi", link: "/ve-chung-toi" },
-    { title: "Bảng Giá", link: "/bang-gia" },
+    { title: "Khách Hàng", link: "/khach-hang" },
     { title: "Tin Tức", link: "/tin-tuc" },
     { title: "Liên Hệ", link: "/lien-he" },
   ];

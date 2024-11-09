@@ -21,7 +21,6 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "admin.phongkhamkhoadien.vn",
-        port: "443",
         pathname: "/uploads/**",
       },
     ],
