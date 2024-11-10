@@ -116,7 +116,7 @@ const Home = async () => {
   const about = dataHome?.data?.attributes?.about || "";
   const slide = dataHome?.data?.attributes?.slide;
   const contentServices = dataHome?.data?.attributes?.contentServices || "";
-  const doctor = dataHome?.data?.attributes?.doctor || "";
+  const doctor = dataHome?.data?.attributes?.doctor || [];
   const baiVietLienQuanData = await fetchWithToken(
     `${ENDPOINT.GET_TIN_TUC}?${searchParams}&pagination[pageSize]=10	`
   );

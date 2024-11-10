@@ -7,61 +7,6 @@ import Image from "next/image";
 // Cấu hình Swiper với hiệu ứng trượt slide
 
 const ChuyenGia = ({ doctor }) => {
-  const doctors = [
-    {
-      id: 1,
-      name: "TS.BS Man Koon Suh",
-      title: "Giám Đốc Hệ Thống Bệnh Viện JW Toàn Cầu",
-      image: "/home/bs-suh-main-18.12.webp",
-      description: `
-      <ul>
-        <li>Giám đốc hệ thống JW toàn cầu.</li>
-        <li>Giám đốc nghiên cứu viện phục hồi đại học Y Yonsei.</li>
-        <li>Giám đốc học thuật Hội nghiên cứu phẫu thuật mới Hiệp hội phẫu thuật tạo hình Hàn Quốc.</li>
-      </ul>
-    `,
-    },
-    {
-      id: 2,
-      name: "TS.BS Nguyễn Phan Tú Dung",
-      title: "Giám Đốc Bệnh Viện JW Hàn Quốc",
-      image: "/home/bs-suh-main-18.12.webp",
-      description: `
-      <ul>
-        <li>Giám đốc hệ thống JW toàn cầu.</li>
-        <li>Giám đốc nghiên cứu viện phục hồi đại học Y Yonsei.</li>
-        <li>Giám đốc học thuật Hội nghiên cứu phẫu thuật mới Hiệp hội phẫu thuật tạo hình Hàn Quốc.</li>
-      </ul>
-    `,
-    },
-    {
-      id: 3,
-      name: "TS.BS Hong Lim Choi",
-      title: "Chủ tịch Hiệp hội Thẩm Mỹ Mắt Hàn Quốc",
-      image: "/home/bs-suh-main-18.12.webp",
-      description: `
-      <ul>
-        <li>Giám đốc hệ thống JW toàn cầu.</li>
-        <li>Giám đốc nghiên cứu viện phục hồi đại học Y Yonsei.</li>
-        <li>Giám đốc học thuật Hội nghiên cứu phẫu thuật mới Hiệp hội phẫu thuật tạo hình Hàn Quốc.</li>
-      </ul>
-    `,
-    },
-    {
-      id: 4,
-      name: "TS.BS Chul Hwan Seul",
-      title: "Chủ Tịch Hội Tạo Hình Thẩm Mỹ Hàn Quốc",
-      image: "/home/bs-suh-main-18.12.webp",
-      description: `
-      <ul>
-        <li>Giám đốc hệ thống JW toàn cầu.</li>
-        <li>Giám đốc nghiên cứu viện phục hồi đại học Y Yonsei.</li>
-        <li>Giám đốc học thuật Hội nghiên cứu phẫu thuật mới Hiệp hội phẫu thuật tạo hình Hàn Quốc.</li>
-      </ul>
-    `,
-    },
-  ];
-
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef(null);
 
@@ -113,7 +58,8 @@ const ChuyenGia = ({ doctor }) => {
           style={{ margin: "0 auto", paddingTop: "20px" }}
         >
           {doctor?.doctors.map((doctor, index) => {
-            const imageUrl = doctor.image.data.attributes.url;
+            const imageUrl = doctor?.image?.data?.attributes?.url;
+
             return (
               <SwiperSlide
                 key={doctor.id}
@@ -130,8 +76,9 @@ const ChuyenGia = ({ doctor }) => {
                 >
                   <Image
                     src={
-                      process.env.NEXT_PUBLIC_URL_BE + imageUrl ||
-                      "/path/defalut.jpg"
+                      imageUrl
+                        ? process.env.NEXT_PUBLIC_URL_BE + imageUrl
+                        : "/path/defalut.jpg"
                     }
                     alt={doctor.name}
                     width={250}
@@ -172,7 +119,7 @@ const ChuyenGia = ({ doctor }) => {
           style={{ margin: "0 auto", paddingTop: "20px" }}
         >
           {doctor?.doctors.map((doctor, index) => {
-            const imageUrl = doctor.image.data.attributes.url;
+            const imageUrl = doctor?.image?.data?.attributes?.url;
             return (
               <SwiperSlide key={doctor.id}>
                 <div className="bg-[#01265b] pb-[30px] md:pb-0 pt-[30px] px-[30px]">
@@ -180,8 +127,9 @@ const ChuyenGia = ({ doctor }) => {
                     <div className="hidden md:block col-span-4">
                       <Image
                         src={
-                          process.env.NEXT_PUBLIC_URL_BE + imageUrl ||
-                          "/path/defalut.jpg"
+                          imageUrl
+                            ? process.env.NEXT_PUBLIC_URL_BE + imageUrl
+                            : "/path/defalut.jpg"
                         }
                         alt={doctor.name}
                         width={250}
