@@ -141,7 +141,9 @@ const page = async () => {
           <div className="w-full">
             <Image
               src={
-                process.env.NEXT_PUBLIC_URL_BE + image || "/path/defalut.jpg"
+                image
+                  ? process.env.NEXT_PUBLIC_URL_BE + image
+                  : "/path/defalut.jpg"
               }
               alt="Thẩm mỹ mắt"
               width={600}
@@ -153,7 +155,7 @@ const page = async () => {
           {/* Services */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {services_2.map((service) => {
-              const imageUrl = service.image.data.attributes.url;
+              const imageUrl = service?.image?.data?.attributes?.url;
               return (
                 <div
                   key={service.id}
@@ -161,8 +163,9 @@ const page = async () => {
                 >
                   <Image
                     src={
-                      process.env.NEXT_PUBLIC_URL_BE + imageUrl ||
-                      "/path/defalut.jpg"
+                      imageUrl
+                        ? process.env.NEXT_PUBLIC_URL_BE + imageUrl
+                        : "/path/defalut.jpg"
                     }
                     alt={service.title}
                     width={200}
