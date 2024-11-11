@@ -27,6 +27,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <Head>
+        {/* Mã theo dõi Google Tag */}
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=AW-16772511699"
@@ -39,6 +40,17 @@ export default function RootLayout({ children }) {
               gtag('js', new Date());
               gtag('config', 'AW-16772511699');
             `,
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+      gtag('event', 'conversion', {
+        'send_to': 'AW-16772511699/seVNCLmz5OcZENPv4L0-',
+        'value': 1.0,
+        'currency': 'VND'
+      });
+    `,
           }}
         />
       </Head>
