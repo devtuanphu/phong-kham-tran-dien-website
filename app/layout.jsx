@@ -5,6 +5,7 @@ import Header from "../components/layouts/Header";
 import Footer from "../components/layouts/Footer";
 import Contact from "../components/layouts/Contact";
 import NextTopLoader from "nextjs-toploader";
+import Head from "next/head";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,15 +26,22 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=AW-16772511699"
-      ></script>
-      <script>
-        window.dataLayer = window.dataLayer || []; function gtag()
-        {dataLayer.push(arguments)}
-        gtag('js', new Date()); gtag('config', 'AW-16772511699');
-      </script>
+      <Head>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-16772511699"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-16772511699');
+            `,
+          }}
+        />
+      </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
