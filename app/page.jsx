@@ -124,14 +124,12 @@ const Home = async () => {
 
   return (
     <>
-      <main>
-        <BannerSlide banner={banner} />
-        <About about={about} slide={slide} />
-        <BaoGia />
-        <SectionChuyenSau contentServices={contentServices} />
-        <ChuyenGia doctor={doctor} />
-        <SlideTinTuc baiVietLienQuan={baiVietLienQuan} />
-      </main>
+      <BannerSlide banner={banner} />
+      <About about={about} slide={slide} />
+      <BaoGia />
+      <SectionChuyenSau contentServices={contentServices} />
+      <ChuyenGia doctor={doctor} />
+      <SlideTinTuc baiVietLienQuan={baiVietLienQuan} />
     </>
   );
 };
