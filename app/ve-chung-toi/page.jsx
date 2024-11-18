@@ -3,6 +3,15 @@ import React from "react";
 import Image from "next/image";
 import { ENDPOINT } from "../../enums/endpoint.enum";
 import { apiService } from "../../services/api.service";
+import Link from "next/link";
+function convertToDateDDMMYYYY(isoDateString) {
+  const date = new Date(isoDateString);
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0"); // Months are 0-based
+  const year = date.getFullYear();
+
+  return `${day}-${month}-${year}`;
+}
 
 const searchData = {
   populate: ["seo.thumbnail"].toString(),
@@ -132,6 +141,12 @@ const page = async () => {
       img: "/tin-tuc.jpg", // Thay thế đường dẫn ảnh tương ứng
     },
   ];
+
+  const baiVietLienQuanData = await fetchWithToken(
+    `${ENDPOINT.GET_TIN_TUC}?${searchParams}&pagination[pageSize]=10	`
+  );
+  const baiVietLienQuan = baiVietLienQuanData.data;
+
   return (
     <>
       <div className=" container mx-auto px-4 py-6 max-w-7xl">
@@ -145,31 +160,42 @@ const page = async () => {
                 Bài viết liên quan
               </h2>
               <div className="divide-y overflow-y-auto max-full w:max-h-96">
-                {posts.map((post) => (
-                  <div
-                    key={post.id}
-                    className="flex items-start py-4 space-x-4"
-                  >
-                    <div className="w-16 h-16 flex-shrink-0">
-                      <Image
-                        src={post.img || "/path/defalut.jpg"}
-                        alt={post.title}
-                        width={64}
-                        height={64}
-                        className="rounded-lg object-cover"
-                      />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-sm font-semibold text-blue-900 mb-1">
-                        {post.title}
-                      </h3>
-                      <p className="text-xs text-gray-500">{post.category}</p>
-                      <p className="text-xs text-gray-400">
-                        Cập nhật ngày {post.date}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+                {baiVietLienQuan?.map((post) => {
+                  const imageUrl =
+                    post?.attributes?.seo?.thumbnail?.data?.attributes?.url;
+                  return (
+                    <Link key={post.id} href={post?.attributes?.slug}>
+                      {" "}
+                      <div className="flex items-start py-4 space-x-4">
+                        <div className="w-16 h-16 flex-shrink-0">
+                          <Image
+                            src={
+                              imageUrl
+                                ? `${process.env.NEXT_PUBLIC_URL_BE}${imageUrl}`
+                                : "/path/defalut.jpg"
+                            }
+                            alt={post?.attributes?.title}
+                            width={64}
+                            height={64}
+                            className="rounded-lg object-cover"
+                          />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-sm font-semibold text-blue-900 mb-1">
+                            {post?.attributes?.title}
+                          </h3>
+                          <p className="text-xs text-gray-500">
+                            {post.category}
+                          </p>
+                          <p className="text-xs text-gray-400">
+                            Cập nhật ngày{" "}
+                            {convertToDateDDMMYYYY(post?.attributes?.createdAt)}
+                          </p>
+                        </div>
+                      </div>
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           </div>
