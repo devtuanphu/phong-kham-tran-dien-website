@@ -27,14 +27,26 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <GoogleTagManager gtmId="GTM-5TFXJJFD" />
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=AW-16896445095"
+      ></script>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-16896445095');
+            `,
+        }}
+      />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header />
         <Contact />
         <AntdRegistry>
-          {" "}
           <NextTopLoader
             color="#29a745"
             initialPosition={0.08}
