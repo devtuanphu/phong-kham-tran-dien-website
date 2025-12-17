@@ -33,6 +33,7 @@ async function fetchData(endpoint) {
 
 async function fetchWithToken(endpoint) {
   const token = process.env.NEXT_PUBLIC_TOKEN_DEV;
+  console.log(token);
 
   const response = await fetch(endpoint, {
     method: "GET",
@@ -51,6 +52,7 @@ async function fetchWithToken(endpoint) {
 }
 
 export async function generateMetadata() {
+  console.log(`${ENDPOINT.GET_HOME}?${searchParams}`);
   const dataHome = await fetchWithToken(`${ENDPOINT.GET_HOME}?${searchParams}`);
 
   const seo =
