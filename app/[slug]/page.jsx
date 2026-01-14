@@ -44,10 +44,10 @@ export async function generateMetadata({ params }) {
     title: seo.title || "Phòng Khám Thẩm Mỹ Trần Điền",
     description:
       seo.description ||
-      "Phòng Khám Thẩm Mỹ Trần Điền cung cấp các giải pháp kỹ thuật công trình hàng đầu.",
+      "Phòng Khám Thẩm Mỹ Trần Điền - Địa chỉ làm đẹp uy tín, chuyên nghiệp với đội ngũ bác sĩ tận tâm.",
     keywords:
       seo.keywords ||
-      "kỹ thuật, công trình, tư vấn cơ điện, xử lý nước, tái sử dụng nước",
+      "thẩm mỹ, làm đẹp, phòng khám trần điền, chăm sóc da, phẫu thuật thẩm mỹ",
     authors: [{ name: seo.author || "Phòng Khám Thẩm Mỹ Trần Điền" }],
     openGraph: {
       title:
@@ -55,8 +55,8 @@ export async function generateMetadata({ params }) {
       description:
         seo.ogDescription ||
         seo.description ||
-        "Phòng Khám Thẩm Mỹ Trần Điền cung cấp các giải pháp kỹ thuật công trình hàng đầu.",
-      url: `https://phongkhamthammytrandien.com/${seo.slug}`,
+        "Phòng Khám Thẩm Mỹ Trần Điền - Địa chỉ làm đẹp uy tín, chuyên nghiệp với đội ngũ bác sĩ tận tâm.",
+      url: `https://phongkhamthammytrandien.com/${slug}`,
       images: [
         {
           url: seo.thumbnail?.data?.attributes?.url
@@ -64,7 +64,7 @@ export async function generateMetadata({ params }) {
             : "/path/to/default-image.jpg",
           width: 800,
           height: 600,
-          alt: "Image description",
+          alt: seo.title || "Phòng Khám Thẩm Mỹ Trần Điền",
         },
       ],
     },
@@ -76,7 +76,7 @@ export async function generateMetadata({ params }) {
       description:
         seo.twitterDescription ||
         seo.description ||
-        "Phòng Khám Thẩm Mỹ Trần Điền cung cấp các giải pháp kỹ thuật công trình hàng đầu.",
+        "Phòng Khám Thẩm Mỹ Trần Điền - Địa chỉ làm đẹp uy tín, chuyên nghiệp với đội ngũ bác sĩ tận tâm.",
       images: [
         seo.twitterImage
           ? `${baseUrl}${seo.twitterImage}`
@@ -111,7 +111,7 @@ const page = async ({ params }) => {
         <div className="grid grid-cols-12 gap-4">
           <div className="col-span-12 md:col-span-8">
             <div
-              className="overflow-x-hidden"
+              className="overflow-x-hidden rich-text-content"
               dangerouslySetInnerHTML={{
                 __html: detailPost?.data[0]?.attributes?.content || "",
               }}
