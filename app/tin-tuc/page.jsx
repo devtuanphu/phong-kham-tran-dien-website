@@ -44,22 +44,22 @@ export async function generateMetadata() {
 
   return {
     metadataBase: new URL(baseUrl),
-    title: seo.title || "Trang chủ - Công ty TNHH Kỹ thuật NTS",
+    title: seo.title || "Trang chủ - Phòng Khám Thẩm Mỹ Trần Điền",
     description:
       seo.description ||
-      "Công ty TNHH Kỹ thuật NTS cung cấp các giải pháp kỹ thuật công trình hàng đầu.",
+      "Phòng Khám Thẩm Mỹ Trần Điền cung cấp các giải pháp kỹ thuật công trình hàng đầu.",
     keywords:
       seo.keywords ||
       "kỹ thuật, công trình, tư vấn cơ điện, xử lý nước, tái sử dụng nước",
-    authors: [{ name: seo.author || "Công ty TNHH Kỹ thuật NTS" }],
+    authors: [{ name: seo.author || "Phòng Khám Thẩm Mỹ Trần Điền" }],
     openGraph: {
       title:
-        seo.ogTitle || seo.title || "Trang chủ - Công ty TNHH Kỹ thuật NTS",
+        seo.ogTitle || seo.title || "Trang chủ - Phòng Khám Thẩm Mỹ Trần Điền",
       description:
         seo.ogDescription ||
         seo.description ||
-        "Công ty TNHH Kỹ thuật NTS cung cấp các giải pháp kỹ thuật công trình hàng đầu.",
-      url: `${baseUrl}/home`,
+        "Phòng Khám Thẩm Mỹ Trần Điền cung cấp các giải pháp kỹ thuật công trình hàng đầu.",
+      url: `https://phongkhamthammytrandien.com/tin-tuc`,
       images: [
         {
           url: seo.thumbnail?.data?.attributes?.url
@@ -75,14 +75,14 @@ export async function generateMetadata() {
       title:
         seo.twitterTitle ||
         seo.title ||
-        "Trang chủ - Công ty TNHH Kỹ thuật NTS",
+        "Trang chủ - Phòng Khám Thẩm Mỹ Trần Điền",
       description:
         seo.twitterDescription ||
         seo.description ||
-        "Công ty TNHH Kỹ thuật NTS cung cấp các giải pháp kỹ thuật công trình hàng đầu.",
+        "Phòng Khám Thẩm Mỹ Trần Điền cung cấp các giải pháp kỹ thuật công trình hàng đầu.",
       images: [
         seo.twitterImage
-          ? `${baseUrl}${seo.twitterImage}`
+          ? `https://phongkhamthammytrandien.com${seo.twitterImage}`
           : "/path/to/default-image.jpg",
       ],
       card: "summary_large_image",
