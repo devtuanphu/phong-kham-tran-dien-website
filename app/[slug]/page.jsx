@@ -6,6 +6,7 @@ import { ENDPOINT } from "../../enums/endpoint.enum";
 import { apiService } from "../../services/api.service";
 const searchData = {
   populate: ["seo.thumbnail"].toString(),
+  sort: "createdAt:desc",
 };
 const searchParams = new URLSearchParams(searchData).toString();
 

@@ -6,6 +6,7 @@ import { ENDPOINT } from "../../enums/endpoint.enum";
 import { apiService } from "../../services/api.service";
 const searchData = {
   populate: ["seo.thumbnail"].toString(),
+  sort: "createdAt:desc",
 };
 const searchParams = new URLSearchParams(searchData).toString();
 
@@ -44,21 +45,21 @@ export async function generateMetadata() {
 
   return {
     metadataBase: new URL(baseUrl),
-    title: seo.title || "Trang chủ - Phòng Khám Thẩm Mỹ Trần Điền",
+    title: seo.title || "Tin tức - Phòng Khám Thẩm Mỹ Trần Điền",
     description:
       seo.description ||
-      "Phòng Khám Thẩm Mỹ Trần Điền cung cấp các giải pháp kỹ thuật công trình hàng đầu.",
+      "Cập nhật những tin tức mới nhất về thẩm mỹ, làm đẹp và các kiến thức chăm sóc sức khỏe từ Phòng Khám Thẩm Mỹ Trần Điền.",
     keywords:
       seo.keywords ||
-      "kỹ thuật, công trình, tư vấn cơ điện, xử lý nước, tái sử dụng nước",
+      "tin tức thẩm mỹ, kiến thức làm đẹp, phòng khám trần điền, nâng mũi, chăm sóc da",
     authors: [{ name: seo.author || "Phòng Khám Thẩm Mỹ Trần Điền" }],
     openGraph: {
       title:
-        seo.ogTitle || seo.title || "Trang chủ - Phòng Khám Thẩm Mỹ Trần Điền",
+        seo.ogTitle || seo.title || "Tin tức - Phòng Khám Thẩm Mỹ Trần Điền",
       description:
         seo.ogDescription ||
         seo.description ||
-        "Phòng Khám Thẩm Mỹ Trần Điền cung cấp các giải pháp kỹ thuật công trình hàng đầu.",
+        "Cập nhật những tin tức mới nhất về thẩm mỹ, làm đẹp và các kiến thức chăm sóc sức khỏe từ Phòng Khám Thẩm Mỹ Trần Điền.",
       url: `https://phongkhamthammytrandien.com/tin-tuc`,
       images: [
         {
@@ -67,7 +68,7 @@ export async function generateMetadata() {
             : "/path/to/default-image.jpg",
           width: 800,
           height: 600,
-          alt: "Image description",
+          alt: seo.title || "Tin tức thẩm mỹ",
         },
       ],
     },
@@ -75,11 +76,11 @@ export async function generateMetadata() {
       title:
         seo.twitterTitle ||
         seo.title ||
-        "Trang chủ - Phòng Khám Thẩm Mỹ Trần Điền",
+        "Tin tức - Phòng Khám Thẩm Mỹ Trần Điền",
       description:
         seo.twitterDescription ||
         seo.description ||
-        "Phòng Khám Thẩm Mỹ Trần Điền cung cấp các giải pháp kỹ thuật công trình hàng đầu.",
+        "Cập nhật những tin tức mới nhất về thẩm mỹ, làm đẹp và các kiến thức chăm sóc sức khỏe từ Phòng Khám Thẩm Mỹ Trần Điền.",
       images: [
         seo.twitterImage
           ? `https://phongkhamthammytrandien.com${seo.twitterImage}`
