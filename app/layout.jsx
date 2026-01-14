@@ -39,6 +39,54 @@ export default function RootLayout({ children }) {
       >
         <GoogleTagManager gtmId="GTM-NF2C32J8" />
         <GoogleAnalytics gaId="G-W3L8JF4CKK" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "Phòng Khám Thẩm Mỹ Trần Điền",
+              "url": "https://phongkhamthammytrandien.com/",
+              "telephone": "+84973171192",
+              "image":
+                "https://phongkhamthammytrandien.com/_next/image?url=%2Flogo.png&w=640&q=75",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "10 Trần Điền",
+                "addressLocality": "Hoàng Mai",
+                "addressRegion": "Hà Nội",
+                "addressCountry": "VN",
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 21.067189673444457,
+                "longitude": 105.82125567291729,
+              },
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday",
+                  ],
+                  "opens": "08:00",
+                  "closes": "20:00",
+                },
+              ],
+              "sameAs": [
+                "https://maps.app.goo.gl/jiU7GGQ6wXpQWBc88",
+                "https://www.facebook.com/10trandien",
+                "https://www.tiktok.com/@10trandien",
+                "https://www.youtube.com/@10trandien",
+              ],
+            }),
+          }}
+        />
         <Header />
         <Contact />
         <AntdRegistry>
