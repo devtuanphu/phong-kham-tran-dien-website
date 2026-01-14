@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/private/",
     },
-    sitemap: "https://phongkhamykhoatrandien.vn/sitemap.xml",
+    sitemap: "https://phongkhamthammytrandien.com/sitemap.xml",
   };
 }
