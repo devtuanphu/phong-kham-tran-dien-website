@@ -53,6 +53,13 @@ export async function generateMetadata() {
       seo.keywords ||
       "tin tức thẩm mỹ, kiến thức làm đẹp, phòng khám trần điền, nâng mũi, chăm sóc da",
     authors: [{ name: seo.author || "Phòng Khám Thẩm Mỹ Trần Điền" }],
+    icons: {
+      icon: [
+        { url: "/favicon.ico" },
+        { url: "/favicon.png", type: "image/png" },
+      ],
+      apple: [{ url: "/favicon.png" }],
+    },
     openGraph: {
       title:
         seo.ogTitle || seo.title || "Tin tức - Phòng Khám Thẩm Mỹ Trần Điền",

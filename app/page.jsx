@@ -65,23 +65,30 @@ export async function generateMetadata() {
   const baseUrl = process.env.NEXT_PUBLIC_URL_BE || "";
 
   return {
-    metadataBase: new URL(baseUrl),
-    title: seo.title || "Trang chủ - Công ty TNHH Kỹ thuật NTS",
+    metadataBase: new URL("https://phongkhamthammytrandien.com"),
+    title: seo.title || "Phòng Khám Thẩm Mỹ Trần Điền",
     description:
       seo.description ||
-      "Công ty TNHH Kỹ thuật NTS cung cấp các giải pháp kỹ thuật công trình hàng đầu.",
+      "Phòng Khám Thẩm Mỹ Trần Điền - Địa chỉ làm đẹp uy tín, chuyên nghiệp với đội ngũ bác sĩ tận tâm.",
     keywords:
       seo.keywords ||
-      "kỹ thuật, công trình, tư vấn cơ điện, xử lý nước, tái sử dụng nước",
-    authors: [{ name: seo.author || "Công ty TNHH Kỹ thuật NTS" }],
+      "thẩm mỹ, làm đẹp, phòng khám trần điền, chăm sóc da, phẫu thuật thẩm mỹ",
+    authors: [{ name: seo.author || "Phòng Khám Thẩm Mỹ Trần Điền" }],
+    icons: {
+      icon: [
+        { url: "/favicon.ico" },
+        { url: "/favicon.png", type: "image/png" },
+      ],
+      apple: [{ url: "/favicon.png" }],
+    },
     openGraph: {
       title:
-        seo.ogTitle || seo.title || "Trang chủ - Công ty TNHH Kỹ thuật NTS",
+        seo.ogTitle || seo.title || "Phòng Khám Thẩm Mỹ Trần Điền",
       description:
         seo.ogDescription ||
         seo.description ||
-        "Công ty TNHH Kỹ thuật NTS cung cấp các giải pháp kỹ thuật công trình hàng đầu.",
-      url: `${baseUrl}/home`,
+        "Phòng Khám Thẩm Mỹ Trần Điền - Địa chỉ làm đẹp uy tín, chuyên nghiệp với đội ngũ bác sĩ tận tâm.",
+      url: `https://phongkhamthammytrandien.com`,
       images: [
         {
           url: seo.thumbnail?.data?.attributes?.url
@@ -89,7 +96,7 @@ export async function generateMetadata() {
             : "/path/to/default-image.jpg",
           width: 800,
           height: 600,
-          alt: "Image description",
+          alt: seo.title || "Phòng Khám Thẩm Mỹ Trần Điền",
         },
       ],
     },
@@ -97,11 +104,11 @@ export async function generateMetadata() {
       title:
         seo.twitterTitle ||
         seo.title ||
-        "Trang chủ - Công ty TNHH Kỹ thuật NTS",
+        "Phòng Khám Thẩm Mỹ Trần Điền",
       description:
         seo.twitterDescription ||
         seo.description ||
-        "Công ty TNHH Kỹ thuật NTS cung cấp các giải pháp kỹ thuật công trình hàng đầu.",
+        "Phòng Khám Thẩm Mỹ Trần Điền - Địa chỉ làm đẹp uy tín, chuyên nghiệp với đội ngũ bác sĩ tận tâm.",
       images: [
         seo.twitterImage
           ? `${baseUrl}${seo.twitterImage}`
