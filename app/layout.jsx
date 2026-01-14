@@ -5,7 +5,7 @@ import Header from "../components/layouts/Header";
 import Footer from "../components/layouts/Footer";
 import Contact from "../components/layouts/Contact";
 import NextTopLoader from "nextjs-toploader";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -38,6 +38,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <GoogleTagManager gtmId="GTM-NF2C32J8" />
+        <GoogleAnalytics gaId="G-W3L8JF4CKK" />
         <Header />
         <Contact />
         <AntdRegistry>
